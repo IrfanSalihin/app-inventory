@@ -20,7 +20,6 @@
                 <a href="/">
     <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Your Logo" class="w-20 h-20">
 </a>
-
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">

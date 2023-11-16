@@ -5,10 +5,11 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
+    <a href="{{ route('dashboard') }}" class="flex items-center">
+        <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Your New Logo" style="height: 50px; width: auto;">
+        <h1 class="text-xl font-semibold ml-2">KOBIMBING Asset Management System</h1>
+    </a>
+</div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
