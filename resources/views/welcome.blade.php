@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Figtree', sans-serif;
-            background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%);
+            background: linear-gradient(135deg, #3498db, #ecf0f1);
             color: #333;
             text-align: center;
             margin: 0;
@@ -27,14 +27,20 @@
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transform: translateY(0);
-            opacity: 1;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
         }
 
-        .container:hover {
-            transform: translateY(-10px);
-            opacity: 0.95;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .logo img {
@@ -62,19 +68,19 @@
             text-decoration: none;
             border-radius: 8px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            background-color: #6a0572;
+            background-color: #2980b9;
             color: #fff;
             cursor: pointer;
         }
 
         .link-button:hover {
-            background-color: #ab83a1;
+            background-color: #3498db;
         }
 
         .welcome-message {
             margin-top: 2rem;
             font-size: 1.8rem;
-            color: #444;
+            color: #333;
         }
     </style>
 </head>
@@ -102,7 +108,7 @@
         </div>
 
         <div class="welcome-message">
-            <p>Welcome to the KOBIMBING Asset Management System</p>
+            <p>Effortless Asset Control with KOBIMBING Asset Management System</p>
         </div>
     </div>
 </body>
