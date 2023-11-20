@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
     <a href="{{ route('dashboard') }}" class="flex items-center">
         <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Your New Logo" style="height: 50px; width: auto;">
-        <h1 class="text-xl font-semibold ml-2">KOBIMBING Asset Management System</h1>
+        <h1 class="text-xl font-semibold ml-2">Asset Management System</h1>
     </a>
 </div>
 
