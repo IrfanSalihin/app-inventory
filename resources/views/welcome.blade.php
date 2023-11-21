@@ -94,7 +94,19 @@
             @if (Route::has('login'))
             <div>
                 @auth
+                @if (Auth::user()->role === 'IT')
+                @if (Auth::user()->permission === 'Admin')
+                <a href="{{ url('/admin/dashboard') }}" class="link-button">IT Admin Dashboard</a>
+                @elseif (Auth::user()->permission === 'User')
+                <a href="{{ url('/it/user/dashboard') }}" class="link-button">IT User Dashboard</a>
+                @endif
+                @elseif (Auth::user()->role === 'GA')
+                @if (Auth::user()->permission === 'User')
+                <a href="{{ url('/ga/user/dashboard') }}" class="link-button">GA User Dashboard</a>
+                @endif
+                @else
                 <a href="{{ url('/dashboard') }}" class="link-button">Dashboard</a>
+                @endif
                 @else
                 <a href="{{ route('login') }}" class="link-button">Log in</a>
 

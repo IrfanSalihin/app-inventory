@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -24,6 +25,31 @@ class User extends Authenticatable
         'role',
         'permission',
     ];
+
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
+
+    public function hasPermission($permission)
+    {
+        return $this->permission === $permission;
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('IT') && $this->hasPermission('Admin');
+    }
+
+    public function isITUser()
+    {
+        return $this->hasRole('IT') && $this->hasPermission('User');
+    }
+
+    public function isGAUser()
+    {
+        return $this->hasRole('GA') && $this->hasPermission('User');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

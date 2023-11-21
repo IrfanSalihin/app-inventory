@@ -34,8 +34,8 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role' => ['required', 'string', 'in:IT,GA'],
-            'permission' => ['required', 'string', 'in:Admin,User'], // Add this line for permission validation
+            'role' => ['required', 'string', 'in:IT,GA,Admin'], // Include 'Admin' in the list of roles
+            'permission' => ['required', 'string', 'in:Admin,User'],
         ]);
 
         $user = User::create([
@@ -50,6 +50,23 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // Redirect users to their respective dashboard based on the role and permission
+        switch ($user->role) {
+            case 'IT':
+                if ($user->permission === 'Admin') {
+                    return redirect('/admin/dashboard');
+                } elseif ($user->permission === 'User') {
+                    return redirect('/it/user/dashboard');
+                }
+                break;
+            case 'GA':
+                if ($user->permission === 'User') {
+                    return redirect('/ga/user/dashboard');
+                }
+                break;
+            default:
+                return redirect(RouteServiceProvider::HOME);
+        }
     }
+
 }

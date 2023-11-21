@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+// app/Http/Controllers/Auth/AuthenticatedSessionController.php
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
@@ -29,6 +31,19 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Check if the user has the role 'IT' and permission 'Admin'
+        if (auth()->user()->role === 'IT' && auth()->user()->permission === 'Admin') {
+            return redirect()->intended(RouteServiceProvider::ADMIN_DASHBOARD);
+        }
+
+        if (auth()->user()->role === 'IT' && auth()->user()->permission === 'User') {
+            return redirect()->intended(RouteServiceProvider::ITUSER_DASHBOARD);
+        }
+
+        if (auth()->user()->role === 'GA' && auth()->user()->permission === 'User') {
+            return redirect()->intended(RouteServiceProvider::GAUSER_DASHBOARD);
+        }
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -46,3 +61,4 @@ class AuthenticatedSessionController extends Controller
         return redirect('/');
     }
 }
+
