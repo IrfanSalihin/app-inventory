@@ -1,3 +1,59 @@
+/* This section includes Tailwind's base styles */
 @tailwind base;
+
+/* Your custom reset styles */
+body, h1, h2, h3, h4, h5, h6, ul, ol, li, p, figure, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adjust main content to accommodate sidebar */
+.sidebar {
+    width: 250px;
+}
+
+/* Sidebar styles */
+.sidebar {
+    height: 100vh; /* Make sidebar full height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: white;
+    z-index: 1000; /* Ensure sidebar is above other content */
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+}
+
+/* Adjust main content to accommodate sidebar */
+.overflow-y-auto {
+    margin-left: 250px; /* Width of the sidebar */
+    padding: 20px;
+    overflow-x: hidden; /* Hide content overflow under the sidebar */
+}
+
+/* This section includes Tailwind's components styles */
 @tailwind components;
+
+/* Styles to maintain navigation position */
+header {
+    width: 100%;
+    background-color: white;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* This section includes Tailwind's utility styles */
 @tailwind utilities;
+
+/* Other custom styles */
+/* Add your additional custom styles here */
