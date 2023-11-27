@@ -5,17 +5,6 @@
 <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
         <div class="flex items-center">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ 
-                        auth()->check() ? 
-                            (auth()->user()->isAdmin() ? route('admin.dashboard') :
-                            (auth()->user()->isITUser() ? route('it.user.dashboard') :
-                            (auth()->user()->isGAUser() ? route('ga.user.dashboard') : route('dashboard'))))
-                        : route('dashboard') }}" class="flex items-center">
-
-                    </a>
-                </div>
 
                 <!-- Hamburger -->
                 <div class="-me-2 flex items-center sm:hidden">
