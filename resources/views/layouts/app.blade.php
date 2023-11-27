@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,13 +54,33 @@
             max-width: 100px;
             margin-bottom: 20px;
         }
+
         #itemDropdownContent {
-        max-height: 200px; /* Set the maximum height for the submenu */
-        overflow-y: auto; /* Enable vertical scrolling */
-    }
+            max-height: 200px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #4a5568 #cbd5e0;
+            /* Adjust colors as needed */
+        }
+
+        #itemDropdownContent::-webkit-scrollbar {
+            width: 10px;
+            /* Adjust the width as needed */
+        }
+
+        #itemDropdownContent::-webkit-scrollbar-thumb {
+            background-color: #4a5568;
+            /* Adjust the color as needed */
+        }
+
+        #itemDropdownContent::-webkit-scrollbar-track {
+            background-color: #cbd5e0;
+            /* Adjust the color as needed */
+        }
     </style>
 
 </head>
+
 <body class="font-sans antialiased bg-gray-100">
     <div class="flex h-screen overflow-hidden">
         <div class="sidebar bg-gray-800 text-white w-64 flex-shrink-0">
@@ -89,7 +110,7 @@
                     ITEM
                     <i class="fas fa-angle-down ml-auto"></i>
                 </button>
-                <div id="itemDropdownContent" class="hidden absolute bg-gray-700 py-2 mt-2 w-full z-10 rounded">
+                <div id="itemDropdownContent" class="hidden relative bg-gray-700 py-2 mt-2 w-full z-10 rounded">
                     <a href="#" class="block py-2 px-4">DESKTOP</a>
                     <a href="#" class="block py-2 px-4">NOTEBOOK</a>
                     <a href="#" class="block py-2 px-4">PRINTER</a>
@@ -153,4 +174,5 @@
         });
     </script>
 </body>
+
 </html>
