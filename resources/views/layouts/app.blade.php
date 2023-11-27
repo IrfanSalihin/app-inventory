@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,17 +20,28 @@
     <!-- Link the custom CSS file -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body class="font-sans antialiased">
     <div class="flex h-screen overflow-hidden"> <!-- Use flex and overflow-hidden -->
         <!-- Sidebar -->
         <div class="sidebar bg-gray-800 text-white w-64 flex-shrink-0"> <!-- Fixed width sidebar -->
-            <a href="{{ route('dashboard') }}" class="text-center block py-4">
+            <a href="{{ 
+                        auth()->check() ? 
+                            (auth()->user()->isAdmin() ? route('admin.dashboard') :
+                            (auth()->user()->isITUser() ? route('it.user.dashboard') :
+                            (auth()->user()->isGAUser() ? route('ga.user.dashboard') : route('dashboard'))))
+                        : route('dashboard') }}" class="text-center block py-4">
                 <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Company Logo" class="h-16 w-auto mx-auto">
                 <div class="mt-2"> <!-- Margin top for the company name -->
                     <span class="text-xl font-semibold">ASSET MANAGEMENT SYSTEM</span>
                 </div>
             </a>
-            <a href="{{ route('dashboard') }}" class="block py-2 px-4 flex items-center">
+            <a href="{{ 
+                        auth()->check() ? 
+                            (auth()->user()->isAdmin() ? route('admin.dashboard') :
+                            (auth()->user()->isITUser() ? route('it.user.dashboard') :
+                            (auth()->user()->isGAUser() ? route('ga.user.dashboard') : route('dashboard'))))
+                        : route('dashboard') }}" class="block py-2 px-4 flex items-center">
                 <i class="fas fa-tachometer-alt mr-2"></i> <!-- Font Awesome dashboard icon -->
                 DASHBOARD
             </a>
@@ -53,11 +65,11 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
             @endif
 
             <!-- Page Content -->
@@ -67,5 +79,5 @@
         </div>
     </div>
 </body>
-</html>
 
+</html>
