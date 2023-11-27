@@ -6,16 +6,35 @@
     <div class="flex justify-between h-16">
         <div class="flex items-center">
 
-                <!-- Hamburger -->
-                <div class="-me-2 flex items-center sm:hidden">
-                    <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
+            <!-- Dashboard Links -->
+            <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
+                @auth
+                @if(Auth::user()->isAdmin())
+                <x-dashboard-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                    {{ __('IT Admin Dashboard') }}
+                </x-dashboard-link>
+                @elseif(Auth::user()->isITUser())
+                <x-dashboard-link :href="route('it.user.dashboard')" :active="request()->routeIs('it.user.dashboard')">
+                    {{ __('IT User Dashboard') }}
+                </x-dashboard-link>
+                @elseif(Auth::user()->isGAUser())
+                <x-dashboard-link :href="route('ga.user.dashboard')" :active="request()->routeIs('ga.user.dashboard')">
+                    {{ __('GA User Dashboard') }}
+                </x-dashboard-link>
+                @endif
+                @endauth
             </div>
+
+            <!-- Hamburger -->
+            <div class="-me-2 flex items-center sm:hidden">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
 
         <!-- Settings Dropdown -->
         <div class="flex items-center space-x-4">
@@ -49,4 +68,6 @@
                 </div>
                 @endauth
             </div>
+        </div>
+    </div>
 </nav>
