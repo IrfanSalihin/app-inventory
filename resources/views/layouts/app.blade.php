@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
+        /* Your existing styles */
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -53,10 +53,13 @@
             max-width: 100px;
             margin-bottom: 20px;
         }
+        #itemDropdownContent {
+        max-height: 200px; /* Set the maximum height for the submenu */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
     </style>
 
 </head>
-
 <body class="font-sans antialiased bg-gray-100">
     <div class="flex h-screen overflow-hidden">
         <div class="sidebar bg-gray-800 text-white w-64 flex-shrink-0">
@@ -80,10 +83,33 @@
                 <i class="fas fa-tachometer-alt mr-2"></i>
                 DASHBOARD
             </a>
-            <a href="#" class="block py-2 px-4 flex items-center">
-                <i class="fas fa-cube mr-2"></i>
-                ITEM
-            </a>
+            <div class="relative">
+                <button id="itemDropdown" class="block py-2 px-4 flex items-center w-full focus:outline-none" onclick="toggleDropdown('itemDropdownContent')">
+                    <i class="fas fa-cube mr-2"></i>
+                    ITEM
+                    <i class="fas fa-angle-down ml-auto"></i>
+                </button>
+                <div id="itemDropdownContent" class="hidden absolute bg-gray-700 py-2 mt-2 w-full z-10 rounded">
+                    <a href="#" class="block py-2 px-4">DESKTOP</a>
+                    <a href="#" class="block py-2 px-4">NOTEBOOK</a>
+                    <a href="#" class="block py-2 px-4">PRINTER</a>
+                    <a href="#" class="block py-2 px-4">SMARTPHONE</a>
+                    <a href="#" class="block py-2 px-4">CAMERA DSLR</a>
+                    <a href="#" class="block py-2 px-4">VOICE RECORDER</a>
+                    <a href="#" class="block py-2 px-4">PROJECTOR</a>
+                    <a href="#" class="block py-2 px-4">MYCARD READER</a>
+                    <a href="#" class="block py-2 px-4">BARCODE SCANNER</a>
+                    <a href="#" class="block py-2 px-4">WALKIE TALKIE</a>
+                    <a href="#" class="block py-2 px-4">UPS</a>
+                    <a href="#" class="block py-2 px-4">SOFTWARE</a>
+                    <a href="#" class="block py-2 px-4">HARD DISK</a>
+                    <a href="#" class="block py-2 px-4">CAFETERIA</a>
+                    <a href="#" class="block py-2 px-4">PHOTOSTAT MACHINE</a>
+                    <a href="#" class="block py-2 px-4">MASIH DALAM SIMPANAN</a>
+                    <a href="#" class="block py-2 px-4">OTHER</a>
+                    <!-- Add more items as needed -->
+                </div>
+            </div>
             {{-- Check if the authenticated user is an IT Admin before rendering the USER menu --}}
             @if (auth()->check() && auth()->user()->isAdmin())
             <a href="#" class="block py-2 px-4 flex items-center">
@@ -111,6 +137,20 @@
             </main>
         </div>
     </div>
-</body>
 
+    <script>
+        function toggleDropdown(elementId) {
+            const dropdown = document.getElementById(elementId);
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close dropdowns when clicking outside
+        window.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('itemDropdownContent');
+            if (!event.target.closest('.relative')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
 </html>
