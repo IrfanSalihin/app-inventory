@@ -13,6 +13,9 @@
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
+    <!-- Include Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <!-- Link the custom CSS file -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -20,9 +23,24 @@
     <div class="flex h-screen overflow-hidden"> <!-- Use flex and overflow-hidden -->
         <!-- Sidebar -->
         <div class="sidebar bg-gray-800 text-white w-64 flex-shrink-0"> <!-- Fixed width sidebar -->
-            <a href="#" class="block py-2 px-4">Menu Item 1</a>
-            <a href="#" class="block py-2 px-4">Menu Item 2</a>
-            <a href="#" class="block py-2 px-4">Menu Item 3</a>
+            <a href="{{ route('dashboard') }}" class="text-center block py-4">
+                <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Company Logo" class="h-16 w-auto mx-auto">
+                <div class="mt-2"> <!-- Margin top for the company name -->
+                    <span class="text-xl font-semibold">ASSET MANAGEMENT SYSTEM</span>
+                </div>
+            </a>
+            <a href="{{ route('dashboard') }}" class="block py-2 px-4 flex items-center">
+                <i class="fas fa-tachometer-alt mr-2"></i> <!-- Font Awesome dashboard icon -->
+                DASHBOARD
+            </a>
+            <a href="#" class="block py-2 px-4 flex items-center">
+                <i class="fas fa-cube mr-2"></i> <!-- Font Awesome item icon -->
+                ITEM
+            </a>
+            <a href="#" class="block py-2 px-4 flex items-center">
+                <i class="fas fa-user mr-2"></i> <!-- Font Awesome user icon -->
+                USER
+            </a>
             <!-- Add more menu items as needed -->
         </div>
 
@@ -50,3 +68,4 @@
     </div>
 </body>
 </html>
+

@@ -13,8 +13,7 @@
                             (auth()->user()->isITUser() ? route('it.user.dashboard') :
                             (auth()->user()->isGAUser() ? route('ga.user.dashboard') : route('dashboard'))))
                         : route('dashboard') }}" class="flex items-center">
-                        <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Your New Logo" style="height: 50px; width: auto;">
-                        <h1 class="text-xl font-semibold ml-2">Asset Management System</h1>
+
                     </a>
                 </div>
 
