@@ -11,15 +11,15 @@
                 @auth
                 @if(Auth::user()->isAdmin())
                 <x-dashboard-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                    {{ __('IT Admin Dashboard') }}
+                    {{ __('IT Admin') }}
                 </x-dashboard-link>
                 @elseif(Auth::user()->isITUser())
                 <x-dashboard-link :href="route('it.user.dashboard')" :active="request()->routeIs('it.user.dashboard')">
-                    {{ __('IT User Dashboard') }}
+                    {{ __('IT User') }}
                 </x-dashboard-link>
                 @elseif(Auth::user()->isGAUser())
                 <x-dashboard-link :href="route('ga.user.dashboard')" :active="request()->routeIs('ga.user.dashboard')">
-                    {{ __('GA User Dashboard') }}
+                    {{ __('GA User') }}
                 </x-dashboard-link>
                 @endif
                 @endauth
