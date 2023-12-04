@@ -56,7 +56,7 @@
         }
 
         #itemDropdownContent {
-            max-height: 200px;
+            max-height: 380px;
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: #4a5568 #cbd5e0;
@@ -116,32 +116,33 @@
                     (auth()->user()->isGAUser() ? route('ga.user.dashboard') : route('dashboard'))))
                 : route('dashboard') }}" class="block py-2 px-4 flex items-center">
                 <i class="fas fa-tachometer-alt mr-2"></i>
-                DASHBOARD
+                Dashboard
             </a>
             <div class="relative">
                 <button id="itemDropdown" class="block py-2 px-4 flex items-center w-full focus:outline-none" onclick="toggleDropdown('itemDropdownContent')">
                     <i class="fas fa-cube mr-2"></i>
-                    ITEM
+                    Inventory
                     <i class="fas fa-angle-down ml-auto"></i>
                 </button>
                 <div id="itemDropdownContent" class="hidden relative bg-gray-700 py-2 mt-2 w-full z-10 rounded">
-                    <a href="#" class="block py-2 px-4">DESKTOP</a>
-                    <a href="#" class="block py-2 px-4">NOTEBOOK</a>
-                    <a href="#" class="block py-2 px-4">PRINTER</a>
-                    <a href="#" class="block py-2 px-4">SMARTPHONE</a>
-                    <a href="#" class="block py-2 px-4">CAMERA DSLR</a>
-                    <a href="#" class="block py-2 px-4">VOICE RECORDER</a>
-                    <a href="#" class="block py-2 px-4">PROJECTOR</a>
-                    <a href="#" class="block py-2 px-4">MYCARD READER</a>
-                    <a href="#" class="block py-2 px-4">BARCODE SCANNER</a>
-                    <a href="#" class="block py-2 px-4">WALKIE TALKIE</a>
+                    <a href="#" class="block py-2 px-4">Desktop</a>
+                    <a href="#" class="block py-2 px-4">Notebook</a>
+                    <a href="#" class="block py-2 px-4">Printer</a>
+                    <a href="#" class="block py-2 px-4">Smartphone</a>
+                    <a href="#" class="block py-2 px-4">Camera</a>
+                    <a href="#" class="block py-2 px-4">Voice Recorder</a>
+                    <a href="#" class="block py-2 px-4">Projector</a>
+                    <a href="#" class="block py-2 px-4">MyCard Reader</a>
+                    <a href="#" class="block py-2 px-4">Barcode Scanner</a>
+                    <a href="#" class="block py-2 px-4">Walkie Talkie</a>
                     <a href="#" class="block py-2 px-4">UPS</a>
-                    <a href="#" class="block py-2 px-4">SOFTWARE</a>
-                    <a href="#" class="block py-2 px-4">HARD DISK</a>
-                    <a href="#" class="block py-2 px-4">CAFETERIA</a>
-                    <a href="#" class="block py-2 px-4">PHOTOSTAT MACHINE</a>
-                    <a href="#" class="block py-2 px-4">MASIH DALAM SIMPANAN</a>
-                    <a href="#" class="block py-2 px-4">OTHER</a>
+                    <a href="#" class="block py-2 px-4">Software</a>
+                    <a href="#" class="block py-2 px-4">Hard Disc</a>
+                    <a href="#" class="block py-2 px-4">Cafeteria</a>
+                    <a href="#" class="block py-2 px-4">Photostat Machine</a>
+                    <a href="#" class="block py-2 px-4">Reserve</a>
+                    <a href="#" class="block py-2 px-4">Damaged</a>
+                    <a href="#" class="block py-2 px-4">Others</a>
                     <!-- Add more items as needed -->
                 </div>
             </div>
@@ -149,7 +150,7 @@
             @if (auth()->check() && auth()->user()->isAdmin())
             <a href="{{ route('user.index') }}" class="block py-2 px-4 flex items-center">
                 <i class="fas fa-users mr-2"></i>
-                USER LIST
+                User List
             </a>
             @endif
         </div>
