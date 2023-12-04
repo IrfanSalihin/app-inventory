@@ -34,14 +34,15 @@
             </div>
 
             <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
+                <x-secondary-button class="mr-2" x-on:click="$dispatch('close')">
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ms-3">
+                <x-danger-button>
                     {{ __('Delete Account') }}
                 </x-danger-button>
             </div>
+
         </form>
     </x-modal>
 </section>

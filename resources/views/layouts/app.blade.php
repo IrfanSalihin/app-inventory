@@ -77,6 +77,20 @@
             background-color: #cbd5e0;
             /* Adjust the color as needed */
         }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 
 </head>
@@ -162,13 +176,17 @@
     <script>
         function toggleDropdown(elementId) {
             const dropdown = document.getElementById(elementId);
+
+            // Toggle the fade-in class along with the hidden class
             dropdown.classList.toggle('hidden');
+            dropdown.classList.toggle('fade-in');
         }
 
         // Close dropdowns when clicking outside
         window.addEventListener('click', function(event) {
             const dropdown = document.getElementById('itemDropdownContent');
             if (!event.target.closest('.relative')) {
+                dropdown.classList.remove('fade-in');
                 dropdown.classList.add('hidden');
             }
         });
