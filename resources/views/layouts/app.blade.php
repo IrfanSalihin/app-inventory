@@ -37,7 +37,7 @@
 
         /* Remove the hover effect */
         .sidebar a:hover {
-            background-color: transparent;
+            color: #a0aec0;
         }
 
         header {
