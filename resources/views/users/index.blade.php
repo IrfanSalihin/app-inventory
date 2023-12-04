@@ -10,8 +10,6 @@
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h1 class="text-2xl font-semibold mb-4">User List</h1>
-
                     <div class="overflow-x-auto">
                         <table class="min-w-full bg-white border border-gray-300">
                             <thead>
