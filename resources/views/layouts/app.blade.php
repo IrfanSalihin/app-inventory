@@ -147,9 +147,9 @@
             </div>
             {{-- Check if the authenticated user is an IT Admin before rendering the USER menu --}}
             @if (auth()->check() && auth()->user()->isAdmin())
-            <a href="#" class="block py-2 px-4 flex items-center">
-                <i class="fas fa-user mr-2"></i>
-                USER
+            <a href="{{ route('user.index') }}" class="block py-2 px-4 flex items-center">
+                <i class="fas fa-users mr-2"></i>
+                USER LIST
             </a>
             @endif
         </div>
