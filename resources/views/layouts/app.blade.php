@@ -126,7 +126,7 @@
                 </button>
                 <div id="itemDropdownContent" class="hidden relative bg-gray-700 py-2 mt-2 w-full z-10 rounded">
                     <a href="#" class="block py-2 px-4">Desktop</a>
-                    <a href="#" class="block py-2 px-4">Notebook</a>
+                    <a href="{{ route('notebooks.index') }}" class="block py-2 px-4">Notebook</a>
                     <a href="#" class="block py-2 px-4">Printer</a>
                     <a href="#" class="block py-2 px-4">Smartphone</a>
                     <a href="#" class="block py-2 px-4">Camera</a>

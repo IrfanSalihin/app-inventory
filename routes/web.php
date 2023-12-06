@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ITUserController;
 use App\Http\Controllers\GAUserController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotebookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(['auth', 'check.ga.user'])->group(function () {
         Route::get('/ga/user/dashboard', [GAUserController::class, 'index'])->name('ga.user.dashboard');
     });
+
+    Route::resource('notebooks', NotebookController::class); // Add this line
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
