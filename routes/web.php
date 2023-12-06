@@ -52,6 +52,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::resource('notebooks', NotebookController::class); // Add this line
+    Route::get('/notebooks/{id}/export', [NotebookController::class, 'export'])->name('notebooks.export');
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');

@@ -53,6 +53,11 @@
                         </div>
 
                         <div class="mb-4 col-span-1">
+                            <dt class="font-semibold text-gray-600">Operating System:</dt>
+                            <dd>{{ $notebook->operating_system }}</dd>
+                        </div>
+
+                        <div class="mb-4 col-span-1">
                             <dt class="font-semibold text-gray-600">Windows Product Key:</dt>
                             <dd>{{ $notebook->windows_product_key }}</dd>
                         </div>
@@ -78,8 +83,23 @@
                         </div>
 
                         <div class="mb-4 col-span-1">
+                            <dt class="font-semibold text-gray-600">Storage Drives:</dt>
+                            <dd>{{ $notebook->storage_drives }}</dd>
+                        </div>
+
+                        <div class="mb-4 col-span-1">
+                            <dt class="font-semibold text-gray-600">Storage Size:</dt>
+                            <dd>{{ $notebook->storage_size }}</dd>
+                        </div>
+
+                        <div class="mb-4 col-span-1">
                             <dt class="font-semibold text-gray-600">Graphic Card:</dt>
                             <dd>{{ $notebook->graphic_card }}</dd>
+                        </div>
+
+                        <div class="mb-4 col-span-1">
+                            <dt class="font-semibold text-gray-600">RAM (GB):</dt>
+                            <dd>{{ $notebook->ram_size }}</dd>
                         </div>
 
                         <div class="col-span-1 mb-4">
@@ -100,6 +120,11 @@
                         <div class="mb-4 col-span-1">
                             <dt class="font-semibold text-gray-600">Microsoft Office Outlook Password:</dt>
                             <dd>{{ $notebook->microsoft_office_outlook_password }}</dd>
+                        </div>
+
+                        <div class="mb-4">
+                            <dt class="font-semibold text-gray-600">Antivirus:</dt>
+                            <dd>{{ $notebook->antivirus_present ? 'Yes' : 'No' }}</dd>
                         </div>
 
                         <div class="mb-4">
@@ -135,9 +160,12 @@
                             @method('DELETE')
                             <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none">Delete</button>
                         </form>
+                        <!-- Add this button for exporting to Excel -->
+                        <a href="{{ route('notebooks.export', $notebook->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Export to Excel</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </x-app-layout>
