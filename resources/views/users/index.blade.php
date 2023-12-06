@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-between items-center mb-4">
-                <h1 class="text-3xl font-bold text-green-700">User List</h1>
+                <h1 class="text-3xl font-bold text-gray-700">User List</h1>
                 <a href="{{ route('users.register') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                     Add User
                 </a>
