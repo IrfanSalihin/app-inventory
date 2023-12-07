@@ -1,10 +1,14 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-3xl font-bold text-gray-700">Notebook Details</h1>
+                <a href="{{ route('notebooks.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Back to List
+                </a>
+            </div>
             <div class="bg-white overflow-hidden shadow-lg sm:rounded-lg">
-                <div class="p-8 text-gray-800">
-                    <h1 class="text-3xl font-bold text-gray-700 mb-6">Notebook Details</h1>
-
+                <div class="p-6 text-gray-800">
                     <dl class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                         <div class="col-span-1 mb-4">
