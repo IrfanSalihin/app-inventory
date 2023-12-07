@@ -6,6 +6,7 @@ use App\Http\Controllers\ITUserController;
 use App\Http\Controllers\GAUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotebookController;
+use App\Http\Controllers\PrinterController; // Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,8 +52,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/ga/user/dashboard', [GAUserController::class, 'index'])->name('ga.user.dashboard');
     });
 
-    Route::resource('notebooks', NotebookController::class); // Add this line
+    Route::resource('notebooks', NotebookController::class);
     Route::get('/notebooks/{id}/export', [NotebookController::class, 'export'])->name('notebooks.export');
+
+    // Routes for PrinterController
+    Route::resource('printers', PrinterController::class); // Add this line
+    Route::get('/printers/{id}/export', [PrinterController::class, 'export'])->name('printers.export'); // Add this line
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
