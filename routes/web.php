@@ -6,6 +6,7 @@ use App\Http\Controllers\ITUserController;
 use App\Http\Controllers\GAUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotebookController;
+use App\Http\Controllers\DesktopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +54,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('notebooks', NotebookController::class); // Add this line
     Route::get('/notebooks/{id}/export', [NotebookController::class, 'export'])->name('notebooks.export');
+
+    Route::resource('desktops', DesktopController::class); // Add this line
+    Route::get('/desktops/{id}/export', [DesktopController::class, 'export'])->name('desktops.export');
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
