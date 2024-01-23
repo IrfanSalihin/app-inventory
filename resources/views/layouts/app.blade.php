@@ -130,7 +130,8 @@
                     <a href="{{ route('printers.index') }}" class="block py-2 px-4">Printer</a>
                     <a href="{{ route('smartphones.index') }}" class="block py-2 px-4">Smartphone</a>
                     <a href="{{ route('cameras.index') }}" class="block py-2 px-4">Camera</a>
-                    <a href="#" class="block py-2 px-4">Voice Recorder</a>
+                    <a href="{{ route('ipads.index') }}" class="block py-2 px-4">Ipad</a>
+                    <a href="{{ route('voicerecorders.index') }}" class="block py-2 px-4">Voice Recorder</a>
                     <a href="#" class="block py-2 px-4">Projector</a>
                     <a href="#" class="block py-2 px-4">MyCard Reader</a>
                     <a href="#" class="block py-2 px-4">Barcode Scanner</a>

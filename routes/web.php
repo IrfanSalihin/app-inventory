@@ -9,7 +9,9 @@ use App\Http\Controllers\NotebookController;
 use App\Http\Controllers\DesktopController;
 use App\Http\Controllers\PrinterController; 
 use App\Http\Controllers\SmartphoneController;
-use App\Http\Controllers\CameraController;// Add this line
+use App\Http\Controllers\CameraController;
+use App\Http\Controllers\IpadController;
+use App\Http\Controllers\VoicerecorderController;// Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -69,6 +71,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('cameras', CameraController::class); // Add this line
     Route::get('/cameras/{id}/export', [CameraController::class, 'export'])->name('cameras.export'); // Add this line
+    
+    Route::resource('ipads', IpadController::class); // Add this line
+    Route::get('/ipads/{id}/export', [IpadController::class, 'export'])->name('ipads.export'); // Add this line
+
+    Route::resource('voicerecorders', VoicerecorderController::class); // Add this line
+    Route::get('/voicerecorders/{id}/export', [VoicerecorderController::class, 'export'])->name('voicerecorders.export'); // Add this line
+
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
