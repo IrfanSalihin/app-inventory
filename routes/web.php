@@ -7,7 +7,9 @@ use App\Http\Controllers\GAUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotebookController;
 use App\Http\Controllers\DesktopController;
-use App\Http\Controllers\PrinterController; // Add this line
+use App\Http\Controllers\PrinterController; 
+use App\Http\Controllers\SmartphoneController;
+use App\Http\Controllers\CameraController;// Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +63,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Routes for PrinterController
     Route::resource('printers', PrinterController::class); // Add this line
     Route::get('/printers/{id}/export', [PrinterController::class, 'export'])->name('printers.export'); // Add this line
+
+    Route::resource('smartphones', SmartphoneController::class); // Add this line
+    Route::get('/smartphones/{id}/export', [SmartphoneController::class, 'export'])->name('smartphones.export'); // Add this line
+
+    Route::resource('cameras', CameraController::class); // Add this line
+    Route::get('/cameras/{id}/export', [CameraController::class, 'export'])->name('cameras.export'); // Add this line
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');

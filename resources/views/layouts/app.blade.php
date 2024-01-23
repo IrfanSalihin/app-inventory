@@ -128,8 +128,8 @@
                     <a href="{{ route('desktops.index') }}" class="block py-2 px-4">Desktop</a>
                     <a href="{{ route('notebooks.index') }}" class="block py-2 px-4">Notebook</a>
                     <a href="{{ route('printers.index') }}" class="block py-2 px-4">Printer</a>
-                    <a href="#" class="block py-2 px-4">Smartphone</a>
-                    <a href="#" class="block py-2 px-4">Camera</a>
+                    <a href="{{ route('smartphones.index') }}" class="block py-2 px-4">Smartphone</a>
+                    <a href="{{ route('cameras.index') }}" class="block py-2 px-4">Camera</a>
                     <a href="#" class="block py-2 px-4">Voice Recorder</a>
                     <a href="#" class="block py-2 px-4">Projector</a>
                     <a href="#" class="block py-2 px-4">MyCard Reader</a>
