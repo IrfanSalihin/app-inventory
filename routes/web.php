@@ -11,7 +11,8 @@ use App\Http\Controllers\PrinterController;
 use App\Http\Controllers\SmartphoneController;
 use App\Http\Controllers\CameraController;
 use App\Http\Controllers\IpadController;
-use App\Http\Controllers\VoicerecorderController;// Add this line
+use App\Http\Controllers\VoicerecorderController;
+use App\Http\Controllers\ProjectorController;// Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -78,6 +79,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('voicerecorders', VoicerecorderController::class); // Add this line
     Route::get('/voicerecorders/{id}/export', [VoicerecorderController::class, 'export'])->name('voicerecorders.export'); // Add this line
 
+    Route::resource('projectors', ProjectorController::class); // Add this line
+    Route::get('/projectors/{id}/export', [ProjectorController::class, 'export'])->name('projectors.export'); // Add this line
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
