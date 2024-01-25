@@ -72,11 +72,11 @@
                         <dt class="font-semibold text-gray-600">Actions:</dt>
                          <dd class="flex space-x-2">
                         <a href="{{ route('walkietalkies.edit', ['id' => $walkietalkie->id]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
-                            <form action="{{ route('walkietalkies.destroy', $walkietalkie->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this Walkietalkie?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none">Delete</button>
-                            </form>
+                        <form action="{{ route('walkietalkies.destroy', ['id' => $walkietalkie->id]) }}" method="DELETE" onsubmit="return confirm('Are you sure you want to delete this Walkietalkie?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none">Delete</button>
+                                        </form>
                             <!-- Add this button for exporting to Excel -->
                             <a href="{{ route('walkietalkies.export', $walkietalkie->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Export to Excel</a>
                         </dd>
