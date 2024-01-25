@@ -73,7 +73,7 @@
                             </div>
                             <div class="mb-4">
                                 <label for="warranty" class="block text-gray-600 font-bold mb-2">Warranty (Year):</label>
-                                <input type="number" name="warranty" id="warranty" class="w-full border-2 border-gray-300 p-2" value="{{ old('warranty', $projector->warranty) }}" required>
+                                <input type="date" name="warranty" id="warranty" class="w-full border-2 border-gray-300 p-2" value="{{ old('warranty', $projector->warranty) }}" required>
                             </div>
                             <div class="mb-4">
                                 <label for="status" class="block text-gray-600 font-bold mb-2">Status:</label>

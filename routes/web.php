@@ -12,7 +12,10 @@ use App\Http\Controllers\SmartphoneController;
 use App\Http\Controllers\CameraController;
 use App\Http\Controllers\IpadController;
 use App\Http\Controllers\VoicerecorderController;
-use App\Http\Controllers\ProjectorController;// Add this line
+use App\Http\Controllers\ProjectorController;
+use App\Http\Controllers\MycardreaderController;
+use App\Http\Controllers\BarcodescannerController;
+use App\Http\Controllers\WalkietalkieController;// Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,6 +85,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('projectors', ProjectorController::class); // Add this line
     Route::get('/projectors/{id}/export', [ProjectorController::class, 'export'])->name('projectors.export'); // Add this line
 
+    Route::resource('mycardreaders', MycardreaderController::class); // Add this line
+    Route::get('/mycardreaders/{id}/export', [MycardreaderController::class, 'export'])->name('mycardreaders.export'); // Add this line
+
+    Route::resource('barcodescanners', BarcodescannerController::class); // Add this line
+    Route::get('/barcodescanners/{id}/export', [BarcodescannerController::class, 'export'])->name('barcodescanners.export'); // Add this line
+
+    // Route::resource('walkietalkies', WalkietalkieController::class);
+    Route::get('/walkietalkies/export/{id}', [WalkietalkieController::class, 'export'])->name('walkietalkies.export');
+    Route::get('/walkietalkies/show/{id}', [WalkietalkieController::class, 'show'])->name('walkietalkies.show');
+    Route::get('/walkietalkies/index', [WalkietalkieController::class, 'index'])->name('walkietalkies.index');
+    Route::get('/walkietalkies/create', [WalkietalkieController::class, 'create'])->name('walkietalkies.create');
+    Route::get('/walkietalkies/edit/{id}', [WalkietalkieController::class, 'edit'])->name('walkietalkies.edit');
+    Route::get('/walkietalkies/destroy/{id}', [WalkietalkieController::class, 'destroy'])->name('walkietalkies.destroy');
+    Route::put('/walkietalkies/update', [WalkietalkieController::class, 'update'])->name('walkietalkies.update');
+    Route::post('/walkietalkies/store', [WalkietalkieController::class, 'store'])->name('walkietalkies.store');
+
+
+    
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');

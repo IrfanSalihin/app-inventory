@@ -133,9 +133,9 @@
                     <a href="{{ route('ipads.index') }}" class="block py-2 px-4">Ipad</a>
                     <a href="{{ route('voicerecorders.index') }}" class="block py-2 px-4">Voice Recorder</a>
                     <a href="{{ route('projectors.index') }}" class="block py-2 px-4">Projector</a>
-                    <a href="#" class="block py-2 px-4">MyCard Reader</a>
-                    <a href="#" class="block py-2 px-4">Barcode Scanner</a>
-                    <a href="#" class="block py-2 px-4">Walkie Talkie</a>
+                    <a href="{{ route('mycardreaders.index') }}" class="block py-2 px-4">MyCard Reader</a>
+                    <a href="{{ route('barcodescanners.index') }}" class="block py-2 px-4">Barcode Scanner</a>
+                    <a href="{{ route('walkietalkies.index') }}" class="block py-2 px-4">Walkie Talkie</a>
                     <a href="#" class="block py-2 px-4">UPS</a>
                     <a href="#" class="block py-2 px-4">Software</a>
                     <a href="#" class="block py-2 px-4">Hard Disc</a>
