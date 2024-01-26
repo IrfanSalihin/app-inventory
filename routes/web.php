@@ -17,7 +17,8 @@ use App\Http\Controllers\MycardreaderController;
 use App\Http\Controllers\BarcodescannerController;
 use App\Http\Controllers\WalkietalkieController;
 use App\Http\Controllers\UpowersuppController;
-use App\Http\Controllers\HarddiskController;// Add this line
+use App\Http\Controllers\HarddiskController;
+use App\Http\Controllers\SoftController;// Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -108,6 +109,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('harddisks', HarddiskController::class); // Add this line
     Route::get('/harddisks/{id}/export', [HarddiskController::class, 'export'])->name('harddisks.export'); // Add this line
+    
+    Route::resource('softs', SoftController::class); // Add this line
+    Route::get('/softs/{id}/export', [SoftController::class, 'export'])->name('softs.export'); // Add this line
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
