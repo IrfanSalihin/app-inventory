@@ -136,7 +136,7 @@
                     <a href="{{ route('mycardreaders.index') }}" class="block py-2 px-4">MyCard Reader</a>
                     <a href="{{ route('barcodescanners.index') }}" class="block py-2 px-4">Barcode Scanner</a>
                     <a href="{{ route('walkietalkies.index') }}" class="block py-2 px-4">Walkie Talkie</a>
-                    <a href="#" class="block py-2 px-4">UPS</a>
+                    <a href="{{ route('upowersupps.index') }}" class="block py-2 px-4">UPS</a>
                     <a href="#" class="block py-2 px-4">Software</a>
                     <a href="#" class="block py-2 px-4">Hard Disc</a>
                     <a href="#" class="block py-2 px-4">Cafeteria</a>
