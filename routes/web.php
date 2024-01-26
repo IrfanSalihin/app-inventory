@@ -16,7 +16,8 @@ use App\Http\Controllers\ProjectorController;
 use App\Http\Controllers\MycardreaderController;
 use App\Http\Controllers\BarcodescannerController;
 use App\Http\Controllers\WalkietalkieController;
-use App\Http\Controllers\UpowersuppController;// Add this line
+use App\Http\Controllers\UpowersuppController;
+use App\Http\Controllers\HarddiskController;// Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -104,6 +105,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('upowersupps', UpowersuppController::class); // Add this line
     Route::get('/upowersupps/{id}/export', [UpowersuppController::class, 'export'])->name('upowersupps.export'); // Add this line
+
+    Route::resource('harddisks', HarddiskController::class); // Add this line
+    Route::get('/harddisks/{id}/export', [HarddiskController::class, 'export'])->name('harddisks.export'); // Add this line
 
     // Moved user list route outside middleware group
     Route::get('/users', [UserController::class, 'index'])->name('user.index');

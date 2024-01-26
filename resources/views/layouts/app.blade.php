@@ -138,7 +138,7 @@
                     <a href="{{ route('walkietalkies.index') }}" class="block py-2 px-4">Walkie Talkie</a>
                     <a href="{{ route('upowersupps.index') }}" class="block py-2 px-4">UPS</a>
                     <a href="#" class="block py-2 px-4">Software</a>
-                    <a href="#" class="block py-2 px-4">Hard Disc</a>
+                    <a href="{{ route('harddisks.index') }}" class="block py-2 px-4">Hard Disc</a>
                     <a href="#" class="block py-2 px-4">Cafeteria</a>
                     <a href="#" class="block py-2 px-4">Photostat Machine</a>
                     <a href="#" class="block py-2 px-4">Reserve</a>

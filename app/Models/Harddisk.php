@@ -6,15 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class Upowersupp extends Model
+class Harddisk extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'location',
+        'branches',
+        'department',
+        'staffname',
         'model',
-        'modeltype',
         'serialnumber',
+        'storagesize',
         'supplier',
         'ponumber',
         'invoicenumber',
@@ -22,6 +25,7 @@ class Upowersupp extends Model
         'purchasedate',
         'purchasedateaccount',
         'warranty',
+        'notes',
         'status',
     ];
 }
