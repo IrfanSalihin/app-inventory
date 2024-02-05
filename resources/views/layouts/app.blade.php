@@ -140,7 +140,7 @@
                     <a href="{{ route('softs.index') }}" class="block py-2 px-4">Software</a>
                     <a href="{{ route('harddisks.index') }}" class="block py-2 px-4">Hard Disc</a>
                     <a href="{{ route('cafeterias.index') }}" class="block py-2 px-4">Cafeteria</a>
-                    <a href="#" class="block py-2 px-4">Photostat Machine</a>
+                    <a href="{{ route('photostatemacs.index') }}" class="block py-2 px-4">Photostat Machine</a>
                     <a href="#" class="block py-2 px-4">Reserve</a>
                     <a href="#" class="block py-2 px-4">Damaged</a>
                     <a href="#" class="block py-2 px-4">Others</a>
