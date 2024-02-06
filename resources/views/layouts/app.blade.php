@@ -143,7 +143,7 @@
                     <a href="{{ route('photostatemacs.index') }}" class="block py-2 px-4">Photostat Machine</a>
                     <a href="#" class="block py-2 px-4">Reserve</a>
                     <a href="#" class="block py-2 px-4">Damaged</a>
-                    <a href="#" class="block py-2 px-4">Others</a>
+                    <a href="{{ route('others.index') }}" class="block py-2 px-4">Others</a>
                     <!-- Add more items as needed -->
                 </div>
             </div>
