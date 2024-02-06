@@ -39,5 +39,6 @@ class Notebook extends Model
         'antivirus_purchasing_date',
         'antivirus_renewal_price',
         'notebook_warranty',
+        'status',
     ];
 }

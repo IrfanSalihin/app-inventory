@@ -96,16 +96,17 @@ class NotebookController extends Controller
         $sheet->setCellValue('AA1', 'Antivirus Purchasing Date');
         $sheet->setCellValue('AB1', 'Antivirus Renewal Price (RM)');
         $sheet->setCellValue('AC1', 'Warranty');
+        $sheet->setCellValue('AD1', 'Status');
 
         // Set headers' font style and background color
-        $sheet->getStyle('A1:AC1')->getFont()->setBold(true);
-        $sheet->getStyle('A1:AC1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('CCCCCC');
+        $sheet->getStyle('A1:AD1')->getFont()->setBold(true);
+        $sheet->getStyle('A1:AD1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('CCCCCC');
 
         // Apply borders to the entire table
-        $sheet->getStyle('A1:AC2')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+        $sheet->getStyle('A1:AD2')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
 
         // Set data font style
-        $sheet->getStyle('A2:AC2')->getFont()->setBold(false);
+        $sheet->getStyle('A2:AD2')->getFont()->setBold(false);
 
         // Format date cells (assuming they are DateTime objects)
         $sheet->getStyle('Y2:AA2')->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH);
@@ -161,6 +162,7 @@ class NotebookController extends Controller
         $sheet->setCellValue('AA2', $notebook->antivirus_purchasing_date);
         $sheet->setCellValue('AB2', $notebook->antivirus_renewal_price);
         $sheet->setCellValue('AC2', $notebook->notebook_warranty);
+        $sheet->setCellValue('AD2', $notebook->status);
 
         // Save the Excel file
         $writer = new Xlsx($spreadsheet);

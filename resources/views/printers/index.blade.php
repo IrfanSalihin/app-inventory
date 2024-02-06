@@ -14,22 +14,22 @@
                         <table class="min-w-full bg-white border border-gray-300">
                             <thead>
                                 <tr>
-                                    <th class="py-3 px-6 text-left bg-indigo-800 text-white">ID</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Staff Name</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Location</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Model</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Serial Number</th>
+                                    <th class="py-3 px-6 text-left bg-indigo-800 text-white">Status</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($printers as $printer)
                                 <tr class="{{ $loop->even ? 'bg-indigo-100' : 'bg-white' }}">
-                                    <td class="py-3 px-6 text-left">{{ $printer->id }}</td>
                                     <td class="py-3 px-6 text-left">{{ $printer->staff_name }}</td>
                                     <td class="py-3 px-6 text-left">{{ $printer->location }}</td>
                                     <td class="py-3 px-6 text-left">{{ $printer->model }}</td>
                                     <td class="py-3 px-6 text-left">{{ $printer->serial_number }}</td>
+                                    <td class="py-3 px-6 text-left">{{ $printer->status }}</td>
                                     <td class="py-3 px-6 text-left flex">
                                         <a href="{{ route('printers.show', $printer->id) }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mr-2">View</a>
                                         <a href="{{ route('printers.edit', $printer->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Edit</a>

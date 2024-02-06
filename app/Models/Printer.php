@@ -24,5 +24,6 @@ class Printer extends Model
         'purchasing_date_for_account',
         'warranty',
         'remarks',
+        'status',
     ];
 }

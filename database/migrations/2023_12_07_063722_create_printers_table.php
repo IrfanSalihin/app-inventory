@@ -24,6 +24,7 @@ class CreatePrintersTable extends Migration
             $table->date('purchasing_date_for_account');
             $table->string('warranty');
             $table->text('remarks')->nullable();
+            $table->enum('status', ['Available', 'Damage', 'Reserved', 'Scrap'])->default('Available');
             $table->timestamps();
         });
     }

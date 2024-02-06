@@ -14,24 +14,24 @@
                         <table class="min-w-full bg-white border border-gray-300">
                             <thead>
                                 <tr>
-                                    <th class="py-3 px-6 text-left bg-indigo-800 text-white">ID</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Staff Name</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Staff Number</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Location</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Model</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Serial Number</th>
+                                    <th class="py-3 px-6 text-left bg-indigo-800 text-white">Status</th>
                                     <th class="py-3 px-6 text-left bg-indigo-800 text-white">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($notebooks as $notebook)
                                 <tr class="{{ $loop->even ? 'bg-indigo-100' : 'bg-white' }}">
-                                    <td class="py-3 px-6 text-left">{{ $notebook->id }}</td>
                                     <td class="py-3 px-6 text-left">{{ $notebook->staff_name }}</td>
                                     <td class="py-3 px-6 text-left">{{ $notebook->staff_number }}</td>
                                     <td class="py-3 px-6 text-left">{{ $notebook->location }}</td>
                                     <td class="py-3 px-6 text-left">{{ $notebook->notebook_details_model }}</td>
                                     <td class="py-3 px-6 text-left">{{ $notebook->notebook_details_serial_number }}</td>
+                                    <td class="py-3 px-6 text-left">{{ $notebook->status }}</td>
                                     <td class="py-3 px-6 text-left flex"> <!-- Added flex class here -->
                                         <a href="{{ route('notebooks.show', $notebook->id) }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mr-2">View</a>
                                         <a href="{{ route('notebooks.edit', $notebook->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Edit</a>

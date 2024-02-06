@@ -69,6 +69,15 @@
                                 <label for="remarks" class="block text-gray-600 font-bold mb-2">Remarks:</label>
                                 <textarea name="remarks" id="remarks" class="w-full border-2 border-gray-300 p-2" rows="3">{{ old('remarks') }}</textarea>
                             </div>
+                            <div class="mb-4">
+                                <label for="status" class="block text-gray-600 font-bold mb-2">Status:</label>
+                                <select name="status" id="status" class="w-full border-2 border-gray-300 p-2" required>
+                                    <option value="Available">Available</option>
+                                    <option value="Damage">Damage</option>
+                                    <option value="Reserved">Reserved</option>
+                                    <option value="Scrap">Scrap</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="mt-4">

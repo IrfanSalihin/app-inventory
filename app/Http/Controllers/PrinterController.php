@@ -81,16 +81,18 @@ class PrinterController extends Controller
         $sheet->setCellValue('L1', 'Purchasing Date for Account');
         $sheet->setCellValue('M1', 'Warranty');
         $sheet->setCellValue('N1', 'Remarks');
+        $sheet->setCellValue('O1', 'Status');
+
 
         // Set headers' font style and background color
-        $sheet->getStyle('A1:N1')->getFont()->setBold(true);
-        $sheet->getStyle('A1:N1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('CCCCCC');
+        $sheet->getStyle('A1:O1')->getFont()->setBold(true);
+        $sheet->getStyle('A1:O1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('CCCCCC');
 
         // Apply borders to the entire table
-        $sheet->getStyle('A1:N2')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+        $sheet->getStyle('A1:O2')->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
 
         // Set data font style
-        $sheet->getStyle('A2:N2')->getFont()->setBold(false);
+        $sheet->getStyle('A2:O2')->getFont()->setBold(false);
 
         // Format date cells (assuming they are DateTime objects)
         $sheet->getStyle('K2:L2')->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH);
@@ -131,6 +133,7 @@ class PrinterController extends Controller
         $sheet->setCellValue('L2', $printer->purchasing_date_for_account);
         $sheet->setCellValue('M2', $printer->warranty);
         $sheet->setCellValue('N2', $printer->remarks);
+        $sheet->setCellValue('O2', $printer->status);
 
         // Save the Excel file
         $writer = new Xlsx($spreadsheet);

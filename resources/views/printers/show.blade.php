@@ -80,6 +80,10 @@
                             <dt class="font-semibold text-gray-600">Remarks:</dt>
                             <dd>{{ $printer->remarks }}</dd>
                         </div>
+                        <div class="col-span-1 mb-4">
+                            <dt class="font-semibold text-gray-600">Status:</dt>
+                            <dd>{{ $printer->status }}</dd>
+                        </div>
                     </dl>
 
                     <div class="mt-8 flex space-x-4">

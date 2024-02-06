@@ -71,6 +71,14 @@
                                 <label for="remarks" class="block text-gray-600 font-bold mb-2">Remarks:</label>
                                 <textarea name="remarks" id="remarks" class="w-full border-2 border-gray-300 p-2" rows="4">{{ old('remarks', $printer->remarks) }}</textarea>
                             </div>
+                            <div class="mb-4">
+                                <label for="status" class="block text-gray-600 font-bold mb-2">Status:</label>
+                                <select name="status" id="status" class="w-full border-2 border-gray-300 p-2" required>
+                                    <option value="Available" {{ $printer->status === 'Available' ? 'selected' : '' }}>Available</option>
+                                    <option value="Damage" {{ $printer->status === 'Damage' ? 'selected' : '' }}>Damage</option>
+                                    <option value="Reserved" {{ $printer->status === 'Reserved' ? 'selected' : '' }}>Reserved</option>
+                                    <option value="Scrap" {{ $printer->status === 'Scrap' ? 'selected' : '' }}>Scrap</option>
+                                </select>
                         </div>
 
                         <div class="mt-4">

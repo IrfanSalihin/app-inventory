@@ -39,6 +39,7 @@ class CreateNotebooksTable extends Migration
             $table->date('antivirus_purchasing_date')->nullable();
             $table->double('antivirus_renewal_price')->nullable();
             $table->string('notebook_warranty');
+            $table->enum('status', ['Available', 'Damage', 'Reserved', 'Scrap'])->default('Available');
             $table->timestamps();
         });
     }

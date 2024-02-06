@@ -105,7 +105,7 @@
                             </div>
                             <div class="mb-4">
                                 <label for="microsoft_office_outlook_password" class="block text-gray-600 font-bold mb-2">Microsoft Office Outlook Password:</label>
-                                <input type="password" name="microsoft_office_outlook_password" id="microsoft_office_outlook_password" class="w-full border-2 border-gray-300 p-2" required>
+                                <input type="text" name="microsoft_office_outlook_password" id="microsoft_office_outlook_password" class="w-full border-2 border-gray-300 p-2" value="{{ old('microsoft_office_outlook_password', $notebook->microsoft_office_outlook_password) }}" required>
                             </div>
                             <div class="mb-4">
                                 <label for="antivirus_present" class="block text-gray-600 font-bold mb-2">Antivirus Present:</label>
@@ -133,6 +133,15 @@
                             <div class="mb-4">
                                 <label for="notebook_warranty" class="block text-gray-600 font-bold mb-2">Notebook Warranty:</label>
                                 <input type="text" name="notebook_warranty" id="notebook_warranty" class="w-full border-2 border-gray-300 p-2" value="{{ old('notebook_warranty', $notebook->notebook_warranty) }}" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="status" class="block text-gray-600 font-bold mb-2">Status:</label>
+                                <select name="status" id="status" class="w-full border-2 border-gray-300 p-2" required>
+                                    <option value="Available" {{ $notebook->status === 'Available' ? 'selected' : '' }}>Available</option>
+                                    <option value="Damage" {{ $notebook->status === 'Damage' ? 'selected' : '' }}>Damage</option>
+                                    <option value="Reserved" {{ $notebook->status === 'Reserved' ? 'selected' : '' }}>Reserved</option>
+                                    <option value="Scrap" {{ $notebook->status === 'Scrap' ? 'selected' : '' }}>Scrap</option>
+                                </select>
                             </div>
                         </div>
 
