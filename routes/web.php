@@ -22,7 +22,8 @@ use App\Http\Controllers\SoftController;
 use App\Http\Controllers\CafeteriaController;
 use App\Http\Controllers\PhotostatemacController;
 use App\Http\Controllers\OtherController;
-use App\Http\Controllers\ReserveditemController;// Add this line
+use App\Http\Controllers\ReserveditemController;
+use App\Http\Controllers\DamageditemController;// Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -126,7 +127,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('others', OtherController::class); // Add this line
     Route::get('/others/{id}/export', [OtherController::class, 'export'])->name('others.export'); // Add this line
 
-    Route::get('/reserveditems', [ReserveditemController::class, 'index'])->name('reserveditems.index');;
+    Route::get('/reserveditems', [ReserveditemController::class, 'index'])->name('reserveditems.index');
+    Route::get('/damageditems', [DamageditemController::class, 'index'])->name('damageditems.index');
 
 
     // Moved user list route outside middleware group

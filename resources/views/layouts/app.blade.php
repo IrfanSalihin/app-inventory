@@ -142,7 +142,7 @@
                     <a href="{{ route('cafeterias.index') }}" class="block py-2 px-4">Cafeteria</a>
                     <a href="{{ route('photostatemacs.index') }}" class="block py-2 px-4">Photostat Machine</a>
                     <a href="{{ route('reserveditems.index') }}" class="block py-2 px-4">Reserve</a>
-                    <a href="#" class="block py-2 px-4">Damaged</a>
+                    <a href="{{ route('damageditems.index') }}" class="block py-2 px-4">Damaged</a>
                     <a href="{{ route('others.index') }}" class="block py-2 px-4">Others</a>
                     <!-- Add more items as needed -->
                 </div>
