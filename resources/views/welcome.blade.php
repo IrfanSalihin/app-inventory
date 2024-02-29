@@ -109,10 +109,10 @@
                 @endif
                 @else
                 <a href="{{ route('login') }}" class="link-button">Log in</a>
-
-                @if (Route::has('register'))
+                <!-- Removed register button -->
+                <!-- @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="link-button">Register</a>
-                @endif
+                @endif -->
                 @endauth
             </div>
             @endif
