@@ -4,50 +4,41 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Authentication</title>
-    <link rel="shortcut icon" href="{{ asset('asset.ico') }}" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        /* Global Styles */
         body {
-            font-family: 'Raleway', sans-serif;
-            background: linear-gradient(135deg, #3498db, #8e44ad);
-            color: #fff;
-            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #2980b9, #6dd5fa);
             margin: 0;
             padding: 0;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
         }
 
         .auth-container {
-            max-width: 600px;
-            padding: 2rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            animation: slideIn 1s ease-out forwards;
+            background: #fff;
+            max-width: 400px;
+            width: 90%;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .auth-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
         }
 
         .auth-container h1 {
-            margin-bottom: 2rem;
-            font-size: 2rem;
             color: #333;
+            margin-bottom: 20px;
         }
 
         .auth-container form input[type="text"],
@@ -68,10 +59,9 @@
             background-color: #e0e0e0;
         }
 
-        .auth-container form label,
-        .auth-container form select option {
-            color: #333;
-            /* Adjusting the font color */
+        .auth-container form label {
+            display: block;
+            margin-bottom: 10px;
         }
 
         .auth-container form select {
@@ -95,7 +85,7 @@
             border-radius: 5px;
             background-color: #3498db;
             color: #fff;
-            font-size: 1.2rem;
+            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             margin-top: 10px;
@@ -110,7 +100,6 @@
             text-decoration: none;
             margin-top: 20px;
             display: inline-block;
-            font-size: 1.2rem;
             transition: color 0.3s ease;
         }
 
@@ -118,14 +107,10 @@
             color: #2980b9;
         }
 
-        .auth-container .logo img {
-            height: 120px;
-            width: auto;
-            transition: transform 0.5s ease;
-        }
-
-        .auth-container .logo img:hover {
-            transform: scale(1.1);
+        .auth-container .logo {
+            width: 110px;
+            /* Adjusted logo width */
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -133,9 +118,6 @@
 <body>
     <div class="auth-container">
         @if(Request::is('register'))
-        <div class="logo">
-            <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Your Logo">
-        </div>
         <h1>User Registration</h1>
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -163,9 +145,7 @@
         </form>
         <a href="{{ route('login') }}" class="switch-link">Already registered? Log in</a>
         @else
-        <div class="logo">
-            <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Your Logo">
-        </div>
+        <img src="{{ asset('images/kobimbinglogo.png') }}" alt="Your Logo" class="logo">
         <h1>Asset Management System</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf

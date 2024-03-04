@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Asset Management System') }}</title>
+
+    <link rel="shortcut icon" href="{{ asset('asset.ico') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,7 +132,6 @@
             display: none;
             /* Hide scrollbar for WebKit browsers (Chrome, Safari, etc.) */
         }
-        
     </style>
 
 </head>
