@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('model');
             $table->string('modelnumber');
             $table->string('serialnumber');
-            $table->integer('pwd');
-            $table->integer('snid');
+            $table->string('pwd'); // Change to string
+            $table->string('snid'); // Change to string
             $table->string('supplier');
             $table->string('ponumber');
             $table->string('invoicenumber');
