@@ -34,7 +34,6 @@ class CreateDesktopsTable extends Migration
             $table->integer('ram_sizes'); 
             $table->string('microsoft_office_year');
             $table->string('microsoft_office_lisence');
-            $table->string('microsoft_office_last_5_digit')->nullable();
             $table->string('microsoft_office_id');
             $table->string('microsoft_office_password');
             $table->boolean('antivirus');

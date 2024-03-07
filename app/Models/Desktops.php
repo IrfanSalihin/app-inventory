@@ -33,7 +33,6 @@ class Desktops extends Model
         'ram_sizes',
         'microsoft_office_year',
         'microsoft_office_lisence',
-        'microsoft_office_last_5_digit',
         'microsoft_office_id',
         'microsoft_office_password',
         'antivirus',
@@ -41,6 +40,7 @@ class Desktops extends Model
         'antivirus_lisence',
         'year',
         'account_purchase_date',
+        'date_purchased',
         'price',
         'status',
     ];

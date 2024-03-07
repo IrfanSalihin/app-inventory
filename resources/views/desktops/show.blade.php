@@ -7,7 +7,7 @@
 
                     <dl class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    
+
                         <div class="col-span-1 mb-4">
                             <dt class="font-semibold text-gray-600">Staff Name:</dt>
                             <dd>{{ $desktop->staff_name }}</dd>
@@ -119,13 +119,8 @@
                         </div>
 
                         <div class="mb-4 col-span-1">
-                            <dt class="font-semibold text-gray-600">Microsoft Office Lisence:</dt>
+                            <dt class="font-semibold text-gray-600">Microsoft Office License:</dt>
                             <dd>{{ $desktop->microsoft_office_lisence }}</dd>
-                        </div>
-
-                        <div class="mb-4">
-                            <dt class="font-semibold text-gray-600">Microsoft Office Last 5 Digit:</dt>
-                            <dd>{{ $desktop->microsoft_office_last_5_digit }}</dd>
                         </div>
 
                         <div class="mb-4">
@@ -140,7 +135,15 @@
 
                         <div class="mb-4">
                             <dt class="font-semibold text-gray-600">Antivirus Present:</dt>
-                            <dd>{{ $desktop->antivirus ? 'Yes' : 'No' }}</dd>
+                            <dd>
+                                @if($desktop->antivirus == 1)
+                                Yes
+                                @elseif($desktop->antivirus == 0)
+                                No
+                                @elseif($desktop->antivirus == 2)
+                                Expired
+                                @endif
+                            </dd>
                         </div>
 
                         <div class="mb-4">
@@ -153,11 +156,11 @@
                             <dd>{{ $desktop->antivirus_lisence }}</dd>
                         </div>
                         <div class="mb-4">
-                            <dt class="font-semibold text-gray-600">Year:</dt>
-                            <dd>{{ $desktop->year }}</dd>
+                            <dt class="font-semibold text-gray-600">Date Purchased:</dt>
+                            <dd>{{ $desktop->date_purchased }}</dd>
                         </div>
                         <div class="mb-4">
-                            <dt class="font-semibold text-gray-600">Account Purchase Date:</dt>
+                            <dt class="font-semibold text-gray-600">Account Date Purchased:</dt>
                             <dd>{{ $desktop->account_purchase_date }}</dd>
                         </div>
                         <div class="mb-4">
@@ -171,7 +174,7 @@
                     </dl>
 
                     <div class="mt-8 flex space-x-4">
-                    <a href="{{ route('desktops.edit', $desktop->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+                        <a href="{{ route('desktops.edit', $desktop->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
 
                         <form action="{{ route('desktops.destroy', $desktop->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this desktop?')">
                             @csrf
